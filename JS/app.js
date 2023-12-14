@@ -67,7 +67,8 @@ function submitNewAsset(){
     processData: false,
     type:'POST',
     success: function(data){
-
+      alert('Image upload successful.');
+      resetImageForm();
     }
   })
 }
@@ -75,6 +76,10 @@ function submitNewAsset(){
 function resetForm() {
   // Assuming your form has an ID, adjust accordingly
   $('#loginForm')[0].reset();
+}
+function resetImageForm() {
+  // Assuming your form has an ID, adjust accordingly
+  $('#newAssetForm')[0].reset();
 }
 
 function checkUserAccount(){
@@ -160,8 +165,8 @@ function deleteImage(imageId){
   $.ajax({
     url: url,
     type: 'DELETE',
-    success: function (data) {
-      if (data.statusCode === 204) {
+    success: function (data, status, jqXHR) {
+      if (jqXHR.status == 204) {
         alert('Image successfully deleted');
         getImages();
       } else {
@@ -169,8 +174,8 @@ function deleteImage(imageId){
         console.error('Error deleting image', data);
       }
     },
-    error: function (error) {
-      console.error('Error deleting image:', error);
+    error: function (jqXHR, textStatus, errorThrown) {
+      console.error('Error deleting image: ', errorThrown);
       alert('Error deleting image');
     }
   });
