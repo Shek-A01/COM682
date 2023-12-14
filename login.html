@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
+  <script type="text/javascript" src="JS/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="JS/login.js"></script>
+  <script type="text/javascript" src="JS/app.js"></script>
+</head>
+
+<body>
+
+  <div  class="container">
+
+    <div class="container">
+      <div class="row align-items-start">
+        <div class="col-2" style="text-align: left;"><br>
+          <a href="register.html"><button class="btn-primary" id = "goToRegisterbtn">Register</button></a>
+        </div>
+        <div class="col-2"></div>
+      </div>
+    </div>
+
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-4"></div>
+      <div class="col-4">
+        <h3>Login</h3>
+        <form id="loginForm">
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="userName" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="userPassword" required>
+          </div>
+          <button type="button" id="loginBtn" class="btn btn-primary">Login</button>
+        </form>
+      </div>
+      <div class="col-4"></div>
+    </div>
+  </div>
+</body>
+
+</html>
