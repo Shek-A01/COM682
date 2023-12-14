@@ -143,6 +143,7 @@ function createUserAccount(){
       success: function (data) {
         console.log('New user created successfully', data);
         alert('Account succesfully created!');
+        sessionStorage.setItem('userName', submitData.username);
         window.location.href = 'index.html';
       },
       error: function (error) {
@@ -169,10 +170,7 @@ function deleteImage(imageId){
       if (jqXHR.status == 204) {
         alert('Image successfully deleted');
         getImages();
-      } else {
-        alert('Error deleting image');
-        console.error('Error deleting image', data);
-      }
+      } 
     },
     error: function (jqXHR, textStatus, errorThrown) {
       console.error('Error deleting image: ', errorThrown);
@@ -219,7 +217,7 @@ $.getJSON(RAI, function( data ) {
   items.push("<hr />");
   items.push("<img src='" + BLOB_ACCOUNT + val["filePath"] + "'width='350'/><br>");
   items.push("<b>File name:</b> " +val["fileName"]+"<br/>");
-  items.push("<b>File uploaded by:</b> "+ val["userName"]+" "+"(user ID: "+val["userID"]+ ")<br>");
+  items.push("<b>File uploaded by:</b> "+ val["userName"]+"<br>");
   items.push('<button type="button" class="deleteImage btn btn-danger" data-image-id="' + val["id"] + '">Delete</button>&nbsp');
 });
 
